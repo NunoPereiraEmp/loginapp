@@ -1,0 +1,22 @@
+--cria novo component chamado login, o npm run ng , corre comandos ng
+ npm run ng generate component login
+
+--cria um novo projeto
+npm init @angular myApp
+
+--inicia o frontend
+
+npm start
+
+https://www.youtube.com/watch?v=Y17CTs09ZUQ&ab_channel=CodeWithBijay
+
+
+https://www.udemy.com/home/my-courses/learning/
+
+tiago.costa@nu-in.com
+H7YN3a,vKe-sghB
+
+Diogo passos
+diogo.passos@valeriushub.com
+
+968166010
