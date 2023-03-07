@@ -2,7 +2,7 @@ import { environment } from "src/app/environments/environments";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 
-const AUTH_API = environment;
+const AUTH_API = environment.url;
 //Essa definição é frequentemente usada em solicitações HTTP para especificar os 
 //cabeçalhos da requisição, como o tipo de conteúdo (content type), a codificação (encoding) 
 //ou outros metadados relevantes para a requisição.
@@ -57,7 +57,7 @@ export class AuthService {
     //sign in na página de login, post
     signIn(data:Object){
         console.log("Inside sign in");
-        return this.http.post<any>(AUTH_API + 'users/login', {'data':data});
+        return this.http.post(AUTH_API + 'users/login', {'data':data});
     }
 
     //quando se dá o log out
