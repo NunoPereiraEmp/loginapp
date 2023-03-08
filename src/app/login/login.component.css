@@ -50,7 +50,7 @@ a {
     position: absolute;
     left: 0;
     top: 50%;
-    transform: translateY(-70%);
+    transform: translateY(-45%);
   }
 
   /*Keep me Signed in*/
@@ -69,7 +69,25 @@ a {
     color: white;
   }
 
+  /*display: block é uma propriedade CSS que define o elemento como um bloco, em vez de um elemento em linha. Isso significa que ele preencherá toda a largura 
+  disponível em sua linha e permitirá que outras propriedades, como margin, sejam aplicadas a ele.
 
+margin: 0 auto é uma propriedade CSS que define as margens superior e inferior como 0 e a margem esquerda e direita como auto. Isso tem o efeito de centralizar 
+horizontalmente um elemento, como um botão, dentro do seu contêiner. Quando combinado com display: block, o botão será centralizado horizontalmente em seu contêiner.*/
+
+/*butão sign in*/
+.buttonSignIn{
+   display: block;
+   margin: 0 auto;
+   width: 100%;
+   padding: 10px;
+  }
+/*
+#buttonId {
+    display: block;
+    margin: 0 auto;
+}
+*/
 /*o que contem o login todo*/
 .login-wrap {
     width: 100%;
