@@ -41,20 +41,55 @@ a {
 
 .group {
     position: relative;
-  }
-  /* 
+}
+
+/* 
   apartir da propriedade absolute todas as outras propriedades vão ser em relação ao pai
     transform: translateY(-70%); alinhado verticalmente no meio do seu elemento pai usando a propriedade "transform: translateY(-50%)".
   */
-  .checks {
+.checks {
     position: absolute;
     left: 0;
     top: 50%;
     transform: translateY(-45%);
-  }
 
-  /*Keep me Signed in*/
-  /*
+    
+}
+
+/*refaz o backgroud  do checkbox quando não está checked*/
+.checks:not(:checked){
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    /*border: 1px solid #999;*/
+    border-radius: 1px;
+    width: 13px;
+    height: 13px;
+    outline: none;
+    margin-right: 5px;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/*muda a label quando carrego no checked*/
+.checks:not(:checked) +label{
+    color: rgba(255, 255, 255, 0.2);
+}
+/*
+.checks:not(:checked)::before{
+    content: "";
+  display: block;
+  width: 14px;
+  height: 14px;
+  background-color: rgba(255, 255, 255, .5);;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 3px;
+  border-radius: 3px;
+}*/
+
+/*Keep me Signed in*/
+/*
   .icon {
     padding-left: 25px;
   }
@@ -64,24 +99,26 @@ a {
     padding-left: 25px;
     color: white;
   }*/
-  .KeepmeSignedin {
+/* Keep me Signed in*/
+.KeepmeSignedin {
     padding-left: 25px;
     color: white;
-  }
+}
 
-  /*display: block é uma propriedade CSS que define o elemento como um bloco, em vez de um elemento em linha. Isso significa que ele preencherá toda a largura 
+/*display: block é uma propriedade CSS que define o elemento como um bloco, em vez de um elemento em linha. Isso significa que ele preencherá toda a largura 
   disponível em sua linha e permitirá que outras propriedades, como margin, sejam aplicadas a ele.
 
 margin: 0 auto é uma propriedade CSS que define as margens superior e inferior como 0 e a margem esquerda e direita como auto. Isso tem o efeito de centralizar 
 horizontalmente um elemento, como um botão, dentro do seu contêiner. Quando combinado com display: block, o botão será centralizado horizontalmente em seu contêiner.*/
 
 /*butão sign in*/
-.buttonSignIn{
-   display: block;
-   margin: 0 auto;
-   width: 100%;
-   padding: 10px;
-  }
+.buttonSignIn {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    padding: 10px;
+}
+
 /*
 #buttonId {
     display: block;
@@ -99,13 +136,16 @@ horizontalmente um elemento, como um botão, dentro do seu contêiner. Quando co
     box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 24), 0 17px 50px 0 rgba(0, 0, 0, .24);
 }
 
-/* a parte azul por cima da imagem*/
+/* a parte azul por cima da imagem
+e o sign que não está selecionado
+*/
 .login-html {
     width: 100%;
     height: 100%;
     position: absolute;
     padding: 90px 70px 50px 70px;
     background: rgba(40, 57, 101, .6);
+    color: rgba(255, 255, 255, 0.5);
 }
 
 .login-html .sign-in-htm,
@@ -119,6 +159,7 @@ horizontalmente um elemento, como um botão, dentro do seu contêiner. Quando co
     backface-visibility: hidden;
     transition: all .4s linear;
 }
+
 
 .login-html .sign-in,
 .login-html .sign-up,
@@ -142,6 +183,7 @@ horizontalmente um elemento, como um botão, dentro do seu contêiner. Quando co
     border-bottom: 2px solid transparent;
 }
 
+/* sign que está selecionado portanto checked*/
 .login-html .sign-in:checked+.tab,
 .login-html .sign-up:checked+.tab {
     color: #fff;
@@ -169,7 +211,7 @@ horizontalmente um elemento, como um botão, dentro do seu contêiner. Quando co
     background: rgba(255, 255, 255, .1);
 }
 
-.login-form .group input[id="user"]{
+.login-form .group input[id="user"] {
     color: white;
 }
 
@@ -197,20 +239,24 @@ display block ocupar toda a largura disponível do elemento pai na horizontal
 .login-form .group label {
     display: block;
     margin-bottom: 5px;
+    
 }
 
 .login-form .group .input {
     display: block;
     width: 100%;
+    
 }
 
 /* separar o sign in do username por 5px*/
-.login-html .tab{
+.login-html .tab {
     margin-bottom: 20px;
+    
 }
 
+
 /* forgot password color*/
-.forgotPassword{
+.forgotPassword {
     color: white;
 }
 
@@ -233,6 +279,7 @@ display block ocupar toda a largura disponível do elemento pai na horizontal
     background: #fff;
     position: absolute;
     transition: all .2s ease-in-out 0;
+    
 }
 
 .login-form .group label .icon:before {
@@ -240,16 +287,19 @@ display block ocupar toda a largura disponível do elemento pai na horizontal
     width: 3px;
     bottom: 6px;
     transform: scale(0) rotate(0);
+    color: white;
 }
 
 .login-form .group label .icon:after {
     top: 6px;
     right: 0;
     transform: scale(0) rotate(0);
+    
 }
 
 .login-form .group .check:checked+label {
     color: #fff;
+    
 }
 
 .login-form .group .check:checked+label .icon {
@@ -260,6 +310,8 @@ display block ocupar toda a largura disponível do elemento pai na horizontal
 /*check*/
 .login-form .group .check:checked+label .icon::before {
     transition: scale(1) rotate(45deg);
+    
+    
 }
 
 .login-form .group .check:checked+label .icon::after {
@@ -268,10 +320,13 @@ display block ocupar toda a largura disponível do elemento pai na horizontal
 
 .login-html .sign-in:checked+.tab+.sign-up+.tab+.login-form .sign-in-htm {
     transform: rotate(0);
+    
+    
 }
 
 .login-html .sign-up:checked+.tab+.login-form .sign-up-htm {
     transform: rotate(0);
+    
 }
 
 .hr {
