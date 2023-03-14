@@ -43,14 +43,13 @@ export class LoginComponent implements OnInit, OnDestroy {
           this.toast.errorToast();
         }
       );
-
     }
     else {
       this.toast.warningToast();
     }
   }
 
- 
+
 
   /*LoginUser() {
     if (this.username == "admin" && this.password == "admin") {
