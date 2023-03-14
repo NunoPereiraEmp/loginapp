@@ -16,6 +16,7 @@
 	<meta charset="UTF-8">
 	<title>Título da Página</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
 <div class="login-wrap">
 	<div class="login-html">
@@ -37,7 +38,7 @@
 					<label id ="KeepmeSignedin" class="KeepmeSignedin" for="check"><!--<span class="icon"></span>--> Keep me Signed in</label>
 				</div>
 				<div class="group">
-                    <button id="buttonId" type="button"  class="btn btn-primary buttonSignIn" >Sign In</button>
+                    <button id="buttonId" type="button"  class="btn btn-primary buttonSignIn" (click)="onSubmit()" >Sign In</button>
 					<!--<input type="submit" class="button" value="Sign In" (click)="onSubmit()">-->
 				</div>
 				<div class="hr"></div>
@@ -73,3 +74,4 @@
 		</div>
 	</div>
 </div>
+<lib-ng-toast></lib-ng-toast>
