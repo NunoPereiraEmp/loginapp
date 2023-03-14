@@ -7,6 +7,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgToastModule } from 'ng-angular-popup';
+import { ToastManager } from './login/toastManager.service';
 
 
 @NgModule({
@@ -22,8 +23,9 @@ import { NgToastModule } from 'ng-angular-popup';
     HttpClientModule,
     ReactiveFormsModule, 
     NgToastModule
+    
   ],
-  providers: [],
+  providers: [ToastManager],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

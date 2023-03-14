@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgToastService } from 'ng-angular-popup';
 import { Subscription } from 'rxjs';
 import { AuthService } from '../services/auth/auth.service';
+import { ToastManager } from './toastManager.service';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   data: object = {};
 
 
-  constructor(private authService: AuthService, private toast: NgToastService) {
+  constructor(private authService: AuthService, private toast: ToastManager) {
   }
 
 
@@ -35,32 +36,21 @@ export class LoginComponent implements OnInit, OnDestroy {
       this.authService.signIn(this.data).subscribe(
         response => {
           console.log(response);
-          this.successToast();
+          this.toast.successToast();
         },
         error => {
           console.error(error);
-          this.errorToast();
+          this.toast.errorToast();
         }
       );
 
     }
     else {
-      this.warningToast();
+      this.toast.warningToast();
     }
   }
 
-  errorToast() {
-    this.toast.error({ detail: 'Login failed, your password or username are incorrect', summary: '', duration: 2000 });
-    console.log("insidde toast");
-  }
-
-  successToast() {
-    this.toast.success({ detail: 'Login success, your password and username are correct', summary: '', duration: 2000 });
-  }
-
-  warningToast() {
-    this.toast.warning({ detail: 'Login failed, insert your password or username', summary: '', duration: 2000 });
-  }
+ 
 
   /*LoginUser() {
     if (this.username == "admin" && this.password == "admin") {
