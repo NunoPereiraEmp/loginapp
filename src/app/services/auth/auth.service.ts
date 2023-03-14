@@ -1,6 +1,7 @@
 import { environment } from "src/app/environments/environments";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { isDevMode } from '@angular/core';
 
 const AUTH_API = environment.url;
 //Essa definição é frequentemente usada em solicitações HTTP para especificar os 
@@ -37,7 +38,10 @@ export class AuthService {
 
     isLoggedIn: boolean = false;
 
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient) { 
+        console.log(`Current environment is production: ${environment.production}`);
+        console.log(`Application is running in development mode: ${isDevMode()}`);
+    }
 
    public async requestGET(request:any) {
         console.log("inside request gettttttttttttttt");

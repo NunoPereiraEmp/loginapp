@@ -1,11 +1,14 @@
 import { Injectable } from "@angular/core";
 import { NgToastService } from "ng-angular-popup";
 
+
 @Injectable()
 
 export class ToastManager{
 
-    constructor(private toast: NgToastService){}
+    constructor(private toast: NgToastService){
+
+    }
 
 
     errorToast() {
