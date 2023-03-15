@@ -59,7 +59,7 @@ export class AuthService {
   //sign in na página de login, post
   signIn(data: Object) {
     console.log('Inside sign in');
-    return this.http.post(AUTH_API + 'users/login', { data: data });
+    return this.http.post(AUTH_API + 'users/login', { data: data }, { observe: 'response' });
   }
 
   //quando se dá o log out
