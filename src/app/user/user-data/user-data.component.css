@@ -1,0 +1,33 @@
+.table-container {
+    padding: 16px;
+  }
+  
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  
+  .table-header-row {
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .table-header-cell {
+    text-align: center;
+    padding: 8px;
+    border-top: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+  }
+  
+  .table-cell {
+    padding: 8px;
+    border-left: 1px solid #ddd;
+  }
+  
+  .table-row:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .table-row:first-child .table-cell:first-child {
+    border-top: 1px solid #ddd;
+  }

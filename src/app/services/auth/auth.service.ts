@@ -2,6 +2,7 @@ import { environment } from 'src/app/environments/environments';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { isDevMode } from '@angular/core';
+import { User } from 'src/app/api/User';
 
 const AUTH_API = environment.url;
 //Essa definição é frequentemente usada em solicitações HTTP para especificar os
@@ -59,7 +60,7 @@ export class AuthService {
   //sign in na página de login, post
   signIn(data: Object) {
     console.log('Inside sign in');
-    return this.http.post(AUTH_API + 'users/login', { data: data }, { observe: 'response' });
+    return this.http.post<any>(AUTH_API + 'users/login', { data: data }, { observe: 'response' });
   }
 
   //quando se dá o log out
