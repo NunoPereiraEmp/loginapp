@@ -11,8 +11,9 @@ import { MatTableDataSource } from '@angular/material/table';
 export class UserDataComponent implements OnInit {
   currentUser!: User;
   dataSource = new MatTableDataSource<User>();
-  displayedColumns: string[] = ['id_user', 'email', 'username', 'id_brand', 'active', 'permissions', 'Criar Operação', 'Tornar Gestor', 'Criar Utilizador', 'Gerir Permissões', 'Consultar Encomendas', 'Corrigir Encomendas', 'Consultar Produtos', 'Importar Produtos', 'Detalhes da Marca', 'Alterar Password', 'Consultar Return'];
-
+  displayedColumns: string[] = ['id_user', 'email', 'username', 'id_brand', 'active', 'permissions'];
+  displayColumnPer:string[]= ['Criar Operação', 'Tornar Gestor', 'Criar Utilizador', 'Gerir Permissões', 'Consultar Encomendas', 'Corrigir Encomendas', 'Consultar Produtos', 'Importar Produtos', 'Detalhes da Marca', 'Alterar Password', 'Consultar Return'];
+  index:number=-1;
   constructor(private userService: UserDataService) { }
 
   ngOnInit(): void {
@@ -26,8 +27,11 @@ export class UserDataComponent implements OnInit {
   }
 
   manageTableNamesError(data: any) {
-    if (typeof data === 'undefined' || data === null) return "Empty"
+    if (typeof data === 'undefined' || data === null){
+      return "Empty"
+    }
     return data;
+    
   }
 
   getProp(data:any){

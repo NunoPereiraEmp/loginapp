@@ -31,7 +31,6 @@
     </table>
   </div>
   -->
-
 <div class="mat-elevation-z8 table-container">
     <table class="table">
         <thead>
@@ -40,15 +39,94 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let property of displayedColumns" class="table-row" >
+            <ng-container *ngFor="let property of displayedColumns">
+                <ng-container *ngIf="property !== 'permissions' else permissionsBlock">
+                    <tr class="table-row">
+                        <td class="table-cell" scope="row">{{ property }} {{ getProp(property) }} </td>
+                        <td class="table-cell">{{  manageTableNamesError(currentUser?.[property] )}}</td>
+                    </tr>
+                </ng-container>
+                <ng-template #permissionsBlock>
+                    <ng-container *ngFor="let permission of currentUser?.[property]">
+                        <tr class="table-row">
+                            <td class="table-cell" scope="row">{{ manageTableNamesError(permission).id_permission}}</td>
+                            <td class="table-cell">{{ manageTableNamesError(permission).description}}</td>
+                        </tr>
+                    </ng-container>
+                </ng-template>
                 
-                <td class="table-cell" scope="row">{{ property }}{{getProp(property)}}</td>
-                <td class="table-cell">{{ manageTableNamesError(currentUser?.[property] )}}</td>
-            </tr>
+            </ng-container>
         </tbody>
     </table>
 </div>
+
+
 <!--
+
+
+    <div class="mat-elevation-z8 table-container">
+    <table class="table">
+        <thead>
+            <tr class="table-header-row">
+                <th class="table-header-cell" colspan="2">User Information</th>
+            </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngFor="let property of displayedColumns">
+                <ng-container *ngIf="property !== 'permissions' else permissionsBlock">
+                    <tr class="table-row">
+                        <td class="table-cell" scope="row">{{ property }}{{getProp(property)}}</td>
+                        <td class="table-cell">{{ manageTableNamesError(currentUser?.[property] )}}</td>
+                    </tr>
+                </ng-container>
+                <ng-template #permissionsBlock>
+                    <ng-container *ngFor="let permission of currentUser?.[property]">
+                        <tr class="table-row">
+                            <td class="table-cell" scope="row">{{ manageTableNamesError(permission).id_permission}}</td>
+                            <td class="table-cell">{{ manageTableNamesError(permission).description}}</td>
+                        </tr>
+                    </ng-container>
+                </ng-template>
+            </ng-container>
+        </tbody>
+    </table>
+</div>
+
+
+<div class="mat-elevation-z8 table-container">
+    <table class="table">
+      <thead>
+        <tr class="table-header-row">
+          <th class="table-header-cell" colspan="2">User Information</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let property of displayedColumns">
+          <ng-container *ngIf="property !== 'permissions' else permissionsBlock">
+            <tr class="table-row">
+              <td class="table-cell" scope="row">{{ property }}{{getProp(property)}}</td>
+              <td class="table-cell">{{ manageTableNamesError(currentUser?.[property] )}}</td>
+            </tr>
+          </ng-container>
+          <ng-template #permissionsBlock>
+            <tr class="table-row">
+              <td class="table-cell" scope="row">{{ property }}{{getProp(property)}}</td>
+              <td class="table-cell">
+                <div *ngFor="let permission of currentUser?.permissions">
+                    <tr class="table-row">
+                        <td class="table-cell" scope="row">{{ property }}{{getProp(property)}}</td>
+                        <td class="table-cell">{{ manageTableNamesError(permission).id_permission}}{{ manageTableNamesError(permission).description}}</td>
+                      </tr>
+                </div>
+              </td>
+            </tr>
+          </ng-template>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+
+
   <td class="table-cell" *ngIf="currentUser?.[property] !== null; else elseBlock">{{ currentUser?.[property] }}</td>
 
                 <ng-template #elseBlock>
