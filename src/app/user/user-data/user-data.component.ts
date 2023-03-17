@@ -12,8 +12,14 @@ export class UserDataComponent implements OnInit {
   currentUser!: User;
   dataSource = new MatTableDataSource<User>();
   displayedColumns: string[] = ['id_user', 'email', 'username', 'id_brand', 'active', 'permissions'];
-  displayColumnPer:string[]= ['Criar Operação', 'Tornar Gestor', 'Criar Utilizador', 'Gerir Permissões', 'Consultar Encomendas', 'Corrigir Encomendas', 'Consultar Produtos', 'Importar Produtos', 'Detalhes da Marca', 'Alterar Password', 'Consultar Return'];
+ // displayColumnPer:string[]= ['Criar Operação', 'Tornar Gestor', 'Criar Utilizador', 'Gerir Permissões', 'Consultar Encomendas', 'Corrigir Encomendas', 'Consultar Produtos', 'Importar Produtos', 'Detalhes da Marca', 'Alterar Password', 'Consultar Return'];
   index:number=-1;
+
+  searchTerm:string='';
+  filterCountries(searchTerm:any){
+    
+  }
+
   constructor(private userService: UserDataService) { }
 
   ngOnInit(): void {
