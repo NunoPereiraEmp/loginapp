@@ -8,4 +8,4 @@ export interface User {
     active_bool?: boolean,
     permissions: any
     [index: string]: any;
-} 
+}

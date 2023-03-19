@@ -7,23 +7,27 @@
     <mat-icon matPrefix color="primary">search</mat-icon>
 </mat-form-field>
 -->
-<!--
-<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-  </svg>
+
+<!-- <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search .search-icon" viewBox="0 0 16 16">
+      <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+    </svg>
+
   -->
 
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
 
-<div class="input-group rounded smaller-size">
-    <span class="input-group-prepend">
-        <span class="input-group-text border-0"><i class="bi bi-search" style="font-size: 100%;"></i></span>
-    </span>
-    <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
-        aria-describedby="search-addon" [(ngModel)]="searchValue" (keyup)="applyFilter($event)" />
+<div class="input-group rounded smaller-size" style="position: relative;">
+  <input type="search" class="form-control" placeholder="Search..." aria-label="Search" aria-describedby="search-addon" [(ngModel)]="searchValue" (keyup)="applyFilter($event)" />
+  <span class="input-group-text">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="fa fa-search" id="search-icon" viewBox="0 0 16 16">
+      <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+    </svg>
+  </span>
 </div>
+
+
 
 <div class="mat-elevation-z8 table-container">
 
@@ -34,10 +38,10 @@
             </tr>
         </thead>
         <tbody>
-            <ng-container *ngFor="let property of filteredColumns; let i = index">
+            <ng-container *ngFor="let property of filteredColumns?.tabela; let i = index">
                 <tr class="table-row">
-                    <td class="table-cell" scope="row">{{ property }} </td>
-                    <td class="table-cell">{{ manageTableNamesError2(property, i) }}</td>
+                    <td class="table-cell" scope="row">{{ property.column }} </td>
+                    <td class="table-cell">{{ property.row }}</td>
                 </tr>
             </ng-container>
         </tbody>
@@ -47,7 +51,7 @@
 
 <!--<div class="mat-elevation-z8 table-container">
     <h2>User Information</h2>
-    
+
     <table class="table">
         <thead>
             <tr class="table-header-row">
