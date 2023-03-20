@@ -27,6 +27,24 @@ export class UserDataComponent implements OnInit {
 
     initUserTable() {
 
+      const entries = Object.entries(this.currentUser);
+      for (const [property, value] of entries) {
+        //console.log(`${property}: ${value}`);
+        if(typeof value==='undefined'){
+          this.displayteste.tabela.push({ column: property, row: "Empty" });
+          continue;
+        }
+        if(property =='permissions'){
+          value.forEach((permissions: any) => {
+            this.displayteste.tabela.push({ column: permissions.description.toString(), row: permissions.id_permission.toString()});
+          });
+          continue;
+        }
+        this.displayteste.tabela.push({ column: property, row: value.toString()});
+
+      }
+    
+      /*
 
       for (const prop in this.currentUser) {
 
@@ -42,7 +60,7 @@ export class UserDataComponent implements OnInit {
         }
         this.displayteste.tabela.push({ column: prop, row: this.currentUser[prop].toString()});
       }
-
+*/
 
     }
 
